@@ -1,0 +1,663 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>KOKORO - Izakaya Ideas</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="dd47d588-78fc-4c9a-a614-e18784d3d770" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/woodcuts_16.jpg" style="object-position:center 100%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🏮</span></div><h1 class="page-title">KOKORO - Izakaya Ideas</h1></header><div class="page-body"><h1 id="19a08cc9-3a27-4649-a661-205e1a23a56c" class="">Start with &quot;WHY&quot;</h1><ul id="78641295-909a-4d93-bac8-3cfc9ff6f651" class="toggle"><li><details open=""><summary>Vì sao cần có một quán Izakaya ở Kallio để khách hàng phải tới ăn uống. </summary><ul id="cce8f9bf-819a-4583-8444-b825e91ddc1c" class="bulleted-list"><li style="list-style-type:disc">Khách hàng ở Kallio là người trẻ, nghệ sĩ. Họ muốn có nơi có đồ ăn ngon vừa phải dù đó là đồ Tây hay đồ châu Á, nhiều đồ uống có cồn đa dạng để chọn. Thực ra có thể thấy đây là nhu cầu của mọi người Tây ở những nơi có gu, ví dụ như phố nhà giàu hoặc khu hipster. </li></ul><ul id="339e1d2c-5c4a-46c7-a838-0205efa74fb9" class="bulleted-list"><li style="list-style-type:disc">Izakaya với nhiều món đa dạng, mới lạ với người Tây, và quan trọng là nhiều đồ uống sẽ là một trải nghiệm mới rất thú vị. </li></ul></details></li></ul><ul id="b267c2b9-08c6-43dc-8a7e-1cd065048d17" class="toggle"><li><details open=""><summary>Loại suy một số sản phẩm</summary><ul id="d8ab7efd-b779-4d75-bf0b-db2686a68422" class="bulleted-list"><li style="list-style-type:disc">Sushi dần đi vào bão hoà. Người ta cần một quán hoặc là sang, đẹp như Bar &amp; Wine, hoặc là ngon và rất rẻ như Oishi. Sẽ khó có chỗ đứng cho các sp như hiện nay của KOKORO tại Kallio. </li></ul><ul id="ad0ec355-2a71-4e5a-a3dd-b895427f6599" class="bulleted-list"><li style="list-style-type:disc">Ramen: phân tích sâu hơn sẽ thấy rằng sp Ramen chưa phù hợp với lúc này với thị hiếu người Phần Lan. Average check của Ramen tương đối thấp. </li></ul></details></li></ul><h1 id="796ae5f2-99fa-453b-bccd-ff732e675879" class="">Food Menu Ideas</h1><ul id="03ad146d-1233-4e62-9a43-92d769086a7b" class="toggle"><li><details open=""><summary>Mô tả</summary><p id="928515cb-cdfa-4f19-9c3e-b9db8099a3f9" class="">Bản chất quán Izakaya cũng tương tự như một quán nhậu ở VN nơi mà người ta ăn các món nhỏ, món nhắm, với bia hoặc rượu. Tây Ban Nha cũng có văn hoá tương tự là Tapas. Đài Loan gọi là Xiao Chi (Tiểu Thực - Món ăn nhỏ). </p><p id="411818b2-9a1c-4f85-a6c3-aee3021aa657" class="">Từ khoá tìm kiếm để lấy cảm hứng có thể là </p><ul id="028f34a6-2abb-48ee-b973-4acb7c7aff6a" class="bulleted-list"><li style="list-style-type:disc">Izakaya food</li></ul><ul id="d3e4ea67-f378-401a-a624-689efdc5e11c" class="bulleted-list"><li style="list-style-type:disc">tapas</li></ul><ul id="ffa335fa-f4d4-4901-aee7-90009020aac1" class="bulleted-list"><li style="list-style-type:disc">xiao chi </li></ul></details></li></ul><ul id="7885fbba-0cdd-4141-a303-cedb30adaf88" class="toggle"><li><details open=""><summary>Hướng đi phù hợp vận hành</summary><ul id="bb6fdcea-35be-4d26-aa04-8025caaa043f" class="bulleted-list"><li style="list-style-type:disc">chế biến nhanh gọn đơn giản vì không gian bếp khá nhỏ. </li></ul><ul id="006502eb-95d0-4895-80f8-0c652b8e21b7" class="bulleted-list"><li style="list-style-type:disc">cách thức: ví dụ như các món cá, hải sản sẽ là xoay quanh việc cắt ra, nướng lên bằng đèn khò, xịt sốt và garnish trình bày cho đẹp. Hạn chế các công thức phải chế biến nóng. </li></ul><ul id="f389fd4b-bee0-4e8a-be59-756360c25000" class="bulleted-list"><li style="list-style-type:disc">Kết cấu: 1 món soup nóng khai vị, 4-5 món mặn và chay, 1 món ngọt dessert </li></ul><ul id="3d62acbb-1645-49fd-9a33-327a7047ac38" class="bulleted-list"><li style="list-style-type:disc">Sự thay đổi: theo mùa hoặc tuỳ độ sẵn có của nguyên liệu, hoặc tuỳ hứng đầu bếp khi muốn thử nghiệm các ý tưởng mới. </li></ul><ul id="d5742717-a084-4cc3-8bf6-57f70478e76c" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background">Cách tuyển chọn: </mark><ul id="8e571139-fcb6-42a2-896c-c73becc5facb" class="bulleted-list"><li style="list-style-type:circle">1:Phúc nghĩ món mới </li></ul><ul id="20be213d-f12a-4b00-b970-51ba0c53c78d" class="bulleted-list"><li style="list-style-type:circle">2: Lập 1 bảng tổng hợp danh sách menu của các nhà hàng tham khảo. Sau đó đặt lên bàn cân so sánh cái hay dở theo các tiêu chí. </li></ul></li></ul></details></li></ul><ul id="388ae3ed-7b78-48a9-8070-b5526acd350c" class="toggle"><li><details open=""><summary>Cảm hứng tham khảo</summary><ul id="e0023d91-fd80-45fd-b9d1-97321ae34e64" class="bulleted-list"><li style="list-style-type:disc">Baro Bao Stockholm</li></ul><ul id="ae411657-2fbe-4a48-b56a-65152c2b841f" class="bulleted-list"><li style="list-style-type:disc">Bao London </li></ul><ul id="4d4b2c3c-0a6e-45ab-a410-93372f5caca2" class="bulleted-list"><li style="list-style-type:disc">Jah Izakaya Copenhagen</li></ul><ul id="2118a061-66e2-45c7-baa5-79101de97f3a" class="bulleted-list"><li style="list-style-type:disc">Sticks n Sushi</li></ul><ul id="f1a59ac1-8389-4716-87a1-356a17320094" class="bulleted-list"><li style="list-style-type:disc">Kak Koy Barcelona</li></ul><ul id="584c4b38-7fd4-4107-9a63-f48f4aabe630" class="bulleted-list"><li style="list-style-type:disc">Umeshu Helsinki </li></ul><ul id="1daa0af4-64b1-41f2-975b-4c8b58749a4b" class="bulleted-list"><li style="list-style-type:disc">Sake Bar Helsinki</li></ul><ul id="a21556d1-5150-4b7c-956f-cd56893d3dca" class="bulleted-list"><li style="list-style-type:disc">Kikunoi Honten</li></ul><p id="c03e5e46-f2ad-4404-b459-5b6d2625be74" class="">
+</p></details></li></ul><figure id="da59eb48-27a7-4cf3-b69c-95b0d1d83a13" class="link-to-page"><a href="https://www.notion.so/Menu-Planning-da59eb4827a74cf3b69c95b0d1d83a13"><span class="icon">🤸🏻‍♀️</span>Menu Planning </a></figure><figure id="b24ddb39-e916-479a-8232-ffea0c7b9e7c" class="link-to-page"><a href="https://www.notion.so/K-t-qu-s-n-xu-t-th-Trial-Production-t-nh-t-i-ng-y-11-10-b24ddb39e916479a8232ffea0c7b9e7c"><span class="icon">🤸🏻‍♀️</span>Kết quả sản xuất thử - Trial Production (tính tới ngày 11.10)</a></figure><figure id="fd08da3f-cde0-41f4-a070-6074d15a5d9c" class="link-to-page"><a href="https://www.notion.so/VIP-Tasting-Day-fd08da3fcde041f4a0706074d15a5d9c"><span class="icon">🚞</span>VIP Tasting Day</a></figure><figure id="deca0aab-4cdb-4444-b4b6-e726f5046f43" class="link-to-page"><a href="https://www.notion.so/Food-Menu-For-the-public-deca0aab4cdb4444b4b6e726f5046f43"><span class="icon">🤡</span>Food Menu - For the public</a></figure><h1 id="72a60c19-61f4-4273-b5b8-a92f2ebd796a" class="">Drink Menu Ideas</h1><ul id="bb3d9c3c-ecb4-4a9f-a511-4b8c81be5141" class="toggle"><li><details open=""><summary>Hướng đi</summary><ul id="fbf7ff5b-16be-4909-a6fa-32032b46d0cf" class="bulleted-list"><li style="list-style-type:disc">Cần có đa dạng nhiều loại đồ uống để kích thích khách uống. Để dẫn tới việc bán đồ uống có thể chiếm được 20-30% doanh thu. </li></ul><ul id="98c1fb44-cd51-486b-9b19-56ae0baa40f5" class="bulleted-list"><li style="list-style-type:disc">Tham khảo thẳng luôn drink menu rất chi tiết của Baro Bao. Cách thiết kế graphic của Baro cũng rất đẹp, đáng tham khảo. </li></ul><figure id="7e518e69-182a-43b3-9fbd-9cdb8524666f" class="image"><a href="KOKORO%20-%20Izakaya%20Ideas%207e518e69182a43b39fbd9cdb8524666f/Screenshot_2021-09-23_at_2.32.10.png"><img style="width:1368px" src="KOKORO%20-%20Izakaya%20Ideas%207e518e69182a43b39fbd9cdb8524666f/Screenshot_2021-09-23_at_2.32.10.png"/></a></figure></details></li></ul><ul id="0b57ad73-29eb-4c26-8598-9060da386c07" class="toggle"><li><details open=""><summary>Cảm hứng tham khảo</summary><ul id="5b33de73-9d7a-4533-b523-2989c1d4e886" class="bulleted-list"><li style="list-style-type:disc">Baro Bao </li></ul><ul id="eab686f8-4ac3-4a2b-9726-c51ee8604911" class="bulleted-list"><li style="list-style-type:disc">Sake Bar Hki </li></ul><ul id="3c2b174b-24ca-4d04-8366-4287d44b3ac9" class="bulleted-list"><li style="list-style-type:disc">Sushi Bar &amp; Wine</li></ul><ul id="060531c3-f9f2-4e43-bed9-d3bff7877f04" class="bulleted-list"><li style="list-style-type:disc">Bao London</li></ul><ul id="059e638b-74bb-4ea3-83e6-a20f52e42009" class="bulleted-list"><li style="list-style-type:disc">Way Bakery</li></ul><p id="89c85b91-1999-430f-a0eb-576906c4cdee" class=""><mark class="highlight-yellow_background">Cần lập list danh sách đồ uống của các nhà hàng tham khảo rồi lựa chọn, tìm supplier. </mark></p></details></li></ul><ul id="db59ffe1-ebee-4073-9c85-0c9d12e51e31" class="toggle"><li><details open=""><summary>Japanese Cocktails: 9 cocktails</summary><p id="9cc83357-f463-4f48-9df7-474908191f83" class="">
+</p><figure id="ee31b8a9-35d3-428e-9edc-217e7f1834c6"><a href="https://www.thrillist.com/drink/nation/japanese-highball-recipes" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Toast the Tokyo Olympics With a Traditional Japanese Highball</div><div class="bookmark-description">Learn from House of Suntory&#x27;s Gardner Dunn and bar expert Julia Momose.</div></div><div class="bookmark-href"><img src="https://www.thrillist.com/static/thrillist-fav.ico" class="icon bookmark-icon"/>https://www.thrillist.com/drink/nation/japanese-highball-recipes</div></div><img src="https://assets3.thrillist.com/v1/image/2995308/1200x600/scale;" class="bookmark-image"/></a></figure><figure id="223dbe1c-8f56-42c4-85d3-c896d3b8ead0"><a href="https://gurunavi.com/en/japanfoodie/2017/05/9-japanese-cocktails.html?__ngt__=TT1260842f7000ac1e4ae41b9_dwEZV_wR7ET49nBfktBD" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">9 Japanese Cocktails to Try - From Matcha Hai to Red Eye</div><div class="bookmark-description">Drinking is a large part of Japanese social life, from year-end company drinking parties at izakaya restaurants to spring hanami picnics, where plenty of alcohol is consumed beneath flowering cherry blossom trees.</div></div><div class="bookmark-href"><img src="https://gurunavi.com/en/japanfoodie/favicon.ico" class="icon bookmark-icon"/>https://gurunavi.com/en/japanfoodie/2017/05/9-japanese-cocktails.html?__ngt__=TT1260842f7000ac1e4ae41b9_dwEZV_wR7ET49nBfktBD</div></div><img src="https://gurunavi.com/en/japanfoodie/article/9_japanese_cocktails/img/Gurunavi_March_Japanese-Cocktails_Top-Image.jpg" class="bookmark-image"/></a></figure></details></li></ul><figure id="f09ed28e-be55-4119-bfdd-6dd63efcca9d" class="link-to-page"><a href="https://www.notion.so/Izakaya-Drink-Menu-f09ed28ebe554119bfdd6dd63efcca9d"><span class="icon">🎃</span>Izakaya Drink Menu</a></figure><h1 id="04185fa5-764f-487a-9e9d-0aa544ebad08" class="">Interior Ideas</h1><ul id="26e3b911-a5c2-46b4-a352-6caaefe85fcb" class="toggle"><li><details open=""><summary>Hướng đi</summary><ul id="1aa59296-2659-4314-8599-082243fd490e" class="bulleted-list"><li style="list-style-type:disc">Phải đổi lại thành màu tối cho gỗ, để đồ ăn chụp trên nền gỗ tối, đen cũng đỡ lộ phần xấu hơn<ul id="8e37a034-6c69-4277-9e19-ef7ac43d8f54" class="bulleted-list"><li style="list-style-type:circle">Không nhất thiết phải đổi lại thành gỗ tối hẳn như Izakaya. Ví dụ như Baro Bao hoặc Bao London, hoặc Way Bakery dùng các loại gỗ màu hơi vàng đậm, nhưng rất đẹp. </li></ul><ul id="cffda7b4-9b60-4170-bdaf-726bc2925b3b" class="bulleted-list"><li style="list-style-type:circle">Khanh làm việc với thợ mộc Puutamo</li></ul></li></ul><ul id="6dc3e7ed-c0e4-4f4e-850f-650ed22993eb" class="bulleted-list"><li style="list-style-type:disc">tableware đa dạng hơn, ấn tượng hơn. <ul id="90fc9494-6713-47c0-8bb3-349c08bdf75a" class="bulleted-list"><li style="list-style-type:circle">tham khảo Sake Bar Hki </li></ul><ul id="682dff35-fe5e-468d-a5a4-85a07b10eada" class="bulleted-list"><li style="list-style-type:circle">mua từ Typhoon uk ltd </li></ul><ul id="3210da1d-892a-421b-bf6e-63202db7597a" class="bulleted-list"><li style="list-style-type:circle">đi Stockholm công tác, ăn uống, kèm mua luôn ở Kappabashi của bà chị Anne</li></ul><ul id="9200f97e-af0b-4def-ad84-e61e9e322e9b" class="bulleted-list"><li style="list-style-type:circle">mua từ sostrene grene, Muji </li></ul></li></ul></details></li></ul><ul id="432e03e9-ce53-4ed0-826b-cba5461893ba" class="toggle"><li><details open=""><summary>Cảm hứng tham khảo</summary><ul id="1bc7ee1b-8679-44ce-8c2d-d1f7b3ace0e1" class="toggle"><li><details open=""><summary>Jah Izakaya copenhagen</summary><p id="70bda5c3-dde0-4f32-9605-eb410ff5d4af" class="">
+</p></details></li></ul><ul id="12602f38-a607-42f6-b73a-d4c1058a2836" class="toggle"><li><details open=""><summary>Baro Bao </summary></details></li></ul><ul id="5b2d3fc0-e3d4-472e-a71f-9690fcbe93ad" class="toggle"><li><details open=""><summary>Bao London </summary></details></li></ul></details></li></ul><h1 id="4895cc45-44de-4472-8c0b-460b4363c0b3" class="">Graphic Design</h1><ul id="4636a178-e3f5-4ecc-8f57-b63952815eb0" class="toggle"><li><details open=""><summary>Hướng đi</summary><p id="d57186e7-834c-410a-a46b-3253760d0395" class="">Bao London, Baro Bao</p></details></li></ul><ul id="144cf42f-0dbc-44cf-b364-51855a23af77" class="toggle"><li><details open=""><summary>Cảm hứng tham khảo</summary><ul id="f5f81372-7a46-4381-baaf-851920f30353" class="bulleted-list"><li style="list-style-type:disc">Trang web của công ty mẹ của Bao London là JKS Restaurants có website, và graphic rất đẹp, interaction khi giới thiệu founders, chefs, v.v.v cũng rất đẹp. <figure id="da96a387-3f9a-4b91-ba1e-aea9ef7da8a9"><a href="https://jksrestaurants.com/who-we-are/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">JKS JKS Restaurants</div><div class="bookmark-description">Founded in 2008, and currently operating 15 restaurants in Central London and 5 Indian home delivery kitchens. Our philosophy is based on an attitude of restless innovation, boundary pushing and spontaneity.</div></div><div class="bookmark-href"><img src="https://jksrestaurants.com/ui/img/favicon/favicon.png" class="icon bookmark-icon"/>https://jksrestaurants.com/who-we-are/</div></div></a></figure></li></ul><p id="9a871522-253f-4bb1-a0b2-b42ebdcb5ad2" class="">
+</p><figure id="855a89de-6a39-43df-a14e-467a6ecada0d"><a href="https://maodumplingbar.com/menu.html" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Mao Dumpling Bar | Menu</div><div class="bookmark-description">Découvrez le menu de notre restaurant</div></div><div class="bookmark-href"><img src="https://maodumplingbar.com/images/favicon.jpg" class="icon bookmark-icon"/>https://maodumplingbar.com/menu.html</div></div><img src="https://maodumplingbar.com/images/39a74a2651d8412b82935191bf00fe5efjktGEXAraOrz2Hp-0.png" class="bookmark-image"/></a></figure><figure id="ad84568b-122d-400c-9493-b77a970b106a"><a href="https://www.instagram.com/maodumplingbar/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title"></div></div><div class="bookmark-href">https://www.instagram.com/maodumplingbar/</div></div></a></figure></details></li></ul><figure id="7432bda4-1927-4f9e-b998-4d9fc7ec1c0f" class="link-to-page"><a href="https://www.notion.so/Web-design-7432bda419274f9eb9984d9fc7ec1c0f"><span class="icon">🏮</span>Web design</a></figure><figure id="cae45ee5-efa5-4fa5-afc3-cf53d9df4692" class="link-to-page"><a href="https://www.notion.so/Neko-Izakaya-Menu-graphic-design-cae45ee5efa54fa5afc3cf53d9df4692"><span class="icon">🌸</span>Neko Izakaya - Menu graphic design</a></figure><p id="66756b6e-e7dd-4475-b18b-94315b0acf09" class="">
+</p><ul id="b4376e2c-5859-4691-87ce-5b6783b016ce" class="toggle"><li><details open=""><summary>Marketing ideas</summary><ul id="d998f500-b90d-4056-909c-14d6f339160c" class="bulleted-list"><li style="list-style-type:disc">Brand Story: <ul id="4572e12a-02b0-41b2-b514-0c0f19bf804d" class="bulleted-list"><li style="list-style-type:circle">Izakaya Neko được ra đời với mục đích tạo ra một eatery mới ở Kallio với tiêu chí &quot;fun and casual&quot;, phục vụ các món small &amp; medium sized for sharing, and new Japanese themed cocktails. </li></ul><ul id="aac6a5ed-eef0-45b9-9a60-e427e115fba2" class="bulleted-list"><li style="list-style-type:circle">Ban đầu, tôi chỉ định tạo ra vài món side dish mới để làm phong phú thêm menu cho quán sushi của mình. Nhưng sau khi cho khách hàng ăn thử, thấy tận mắt phản ứng rất tích cực của khách hàng, tôi nghĩ rằng tôi nên tiếp tục đào sâu thêm đối với loại đồ ăn này. <ul id="4f87c56e-841c-42f9-9754-251ed90e1947" class="bulleted-list"><li style="list-style-type:square">Ví dụ: với món Flame Grilled Edamame Soy Beans chẳng hạn, thông thường đậu chỉ được luộc lên và ăn với muối rắc lên trên. Khách hàng khen, và nói rằng món này vừa quen, mà vừa lạ, mùi đậu nướng rất tuyệt, cái smokiness của nó khác hẳn với các nhà hàng thông thường khác tôi vẫn ăn. </li></ul><ul id="a971b1bd-ca41-46c7-a777-2024f4d0b2a5" class="bulleted-list"><li style="list-style-type:square">Tôi cảm thấy rằng tôi đã tìm ra một thứ gì đó mới. I felt like I&#x27;ve hit something right. The reaction of the customers surpassed all my expectations. The feeling of creating value and joy for people is so motivational. </li></ul><ul id="897c4903-9045-4720-8591-18f3379de325" class="bulleted-list"><li style="list-style-type:square">Tôi tin rằng nếu tôi tiếp tục đào sâu tìm hiểu vào thể loại đồ ăn này, tôi sẽ tiếp tục mang lại niềm vui cho khách hàng của mình</li></ul></li></ul><ul id="334fc5b1-81da-4741-81e1-3dd476d515a6" class="bulleted-list"><li style="list-style-type:circle">Tôi nhớ tới chuyến du lịch của mình tới Nhật Bản năm 2018. Văn hoá ăn uống after-work của người Nhật thực sự thú vị. <ul id="f6d00c0a-a4ff-4699-b3ed-bc2f23fcf335" class="bulleted-list"><li style="list-style-type:square">Người Nhật, đủ mọi tầng lớp xã hội, từ bình dân cho tới người khá giả hơn, sau giờ làm việc hẹn nhau ở các Izakaya (quán bar bình dân bán các món nhỏ để mọi người share và uống kèm beer rượu). </li></ul><ul id="c569d332-360e-4a62-bfc4-e60e20f34780" class="bulleted-list"><li style="list-style-type:square">Izakaya vẫn còn là một thứ gì đó rất mới với người Phần Lan. Người Phần Lan thường biết tới các món Nhật chủ yếu là sushi. Hiện nay các quán sushi đang rất phổ biến tại Phần Lan. Tôi muốn đem văn hoá ăn uống mới, với các món ăn mới và đồ uống mới (như rượu sake và các loại cocktail kiểu Nhật Bản) và không khí vui vẻ bình dân đó tới với Phần Lan. </li></ul><ul id="b37d2a50-afaa-4918-b6f8-c7b9f739bbdb" class="bulleted-list"><li style="list-style-type:square">Hiện nay đã bắt đầu có vài Izakaya ở Helsinki, rất thú vị, ví dụ như quán Shinobi của head chef của Hanko Sushi mở ra ở trung tâm, hoặc quán Sake Bar Izakaya rất thú vị của cặp đôi người Nhật Bản - Phần Lan là Mino và Ben mở ra ở Kruunuhaka. Chúng tôi tin rằng quán Neko Izakaya mà chúng tôi đang tạo lập sẽ đóng góp một phần vào việc làm cho food scene của Helsinki trở nên sống động hơn, đặc biệt là ở khu vực hipster như Kallio-Sörnäinen. </li></ul></li></ul><p id="c5260d93-e36f-460e-8618-6b61606ce6da" class="">
+</p></li></ul></details></li></ul><p id="f0024223-b048-4715-b343-69005da33391" class="">
+</p><figure id="7a8de940-e31d-4ec0-bbe0-51380b506c3b" class="link-to-page"><a href="https://www.notion.so/Neko-Izakaya-training-7a8de940e31d4ec0bbe051380b506c3b"><span class="icon">😻</span>Neko Izakaya training</a></figure></div></article></body></html>
